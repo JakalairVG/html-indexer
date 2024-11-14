@@ -1,14 +1,26 @@
 # to make one html file out of all the other ones.
 from pathlib import Path
 import os, time
+import pyinputplus as pyip
+
+os.system('cls')  # just clearing the screen
 #  this will get the folder where the file is currently located at.
 #  homeFolder = Path('c:/html_games')
 #  easier to just put this file where the other files are.
 currentFolder = Path.cwd()
-print('Program running in ', currentFolder)  # this is for user output
+print('\nProgram running in ', currentFolder)  # this is for user output
 time.sleep(0.1)
+print('\nIs this the folder you want to index? (Y/n)')
+folderResponse = pyip.inputYesNo(default='Yes', blank=True)
+if folderResponse == 'no':
+    print('Please move file to the folder you want to index.')
+    exit()
+print('What do you want the file to be called?')
+print('(Examples: index.html, html.txt, index_html.txt)')
+outputFileName = pyip.inputStr(prompt='Enter filename: ')
+#  outputFileName = 'test_index.html'
 #  Putting the header information in the file.
-outputFileName = 'test_index.html'
+
 print('Creating ', outputFileName)
 time.sleep(0.1)
 outputFile = open(outputFileName, "w")
@@ -22,8 +34,11 @@ outputFile.write('<body text="ffff00" style="background-color:teal;">\n')
 #  starting a simple table
 outputFile.write('<center><table border ="1" class="center">\n<tr>\n')
 #  outputFile.close()
+
+print('\nHow many columns would you like in the html file?')
+colNumber = pyip.inputInt(prompt='Enter a number:')
 #  setting up some things for later on.
-rowNumber = int(0)
+countNumber = int(0)  # this is a better name.
 fileNumber = int(0)
 beginningCode = '<td><a href="'
 middleCode = '">'
@@ -48,10 +63,10 @@ for filename in os.listdir():
             outputFile.write(middleCode)  # middle code of html
             outputFile.write(filename)  # dir of the htmlFile
             outputFile.write(endCode)  # the end of the html
-            rowNumber = rowNumber + 1
+            countNumber = countNumber + 1
             fileNumber = fileNumber + 1
-            if rowNumber >= 4:
-                rowNumber = 0
+            if countNumber >= colNumber:
+                countNumber = 0
                 outputFile.write('</tr><tr>\n')
 #  find all the .html files in the folders
 #  list(currentFolder.glob('*.html') this command finds them
