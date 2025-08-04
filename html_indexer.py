@@ -3,7 +3,8 @@ from pathlib import Path
 import os, time
 import pyinputplus as pyip
 
-os.system('cls')  # just clearing the screen
+os.system('cls' if os == 'nt' else 'clear')
+     # just clearing the screen
 #  this will get the folder where the file is currently located at.
 #  homeFolder = Path('c:/html_games')
 #  easier to just put this file where the other files are.
