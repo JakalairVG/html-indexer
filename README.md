@@ -12,6 +12,9 @@ Thing to improve:
   -naming of output file (done)
 
 Changelog
+  V1.2
+    Added an auto version of the file
+    Added the Shebang line at the top to make the file easier to use.
   V1.1
     Added the ability to name the output
     Added verification that we are in the correct directory
