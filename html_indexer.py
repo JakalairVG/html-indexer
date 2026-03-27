@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # to make one html file out of all the other ones.
 from pathlib import Path
 import os, time
