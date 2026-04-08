@@ -49,7 +49,7 @@ endCode = '</a></td>\n'
 print('Searching for HTML files.')
 time.sleep(0.1)
 #  this is the mess of code that makes it all work
-for filename in os.listdir():
+for filename in sorted(os.listdir()):
 
     # print(filename)  # here for debug
     subDirectory = (currentFolder / filename)
