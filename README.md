@@ -12,6 +12,9 @@ Thing to improve:
   -naming of output file (done)
 
 Changelog
+  V1.3
+    Added sorting to manual method
+    Added sorting to automatic method
   V1.2
     Added an auto version of the file
     Added the Shebang line at the top to make the file easier to use.
